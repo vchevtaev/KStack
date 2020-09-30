@@ -44,17 +44,17 @@ public:
 		return new StackIterator<T, Stack>(this);
 	}
 	void Swap(Stack& stack);
-	friend ostream& operator«(ostream& out, Stack<T>& stack) {
-		StackIterator < T, Stack < T»* it = stack.createIterator();
+	friend ostream& operator<<(ostream& out, Stack<T>& stack) {
+		StackIterator < T, Stack < T>>* it = stack.createIterator();
 		for (it->First(); !it->IsDone(); it->Next()) {
-			out « it->currentItem() « " ";
+			out << it->currentItem() << " ";
 		}
 		delete it;
 		return out;
 	}
-	friend istream& operator»(istream& in, Stack& stack) {
+	friend istream& operator>>(istream& in, Stack& stack) {
 		for (int i = 0; i < stack.capacity_; i++) {
-			in » stack.data_[i];
+			in >> stack.data_[i];
 		}
 		stack.size_ = stack.capacity_;
 		return in;
